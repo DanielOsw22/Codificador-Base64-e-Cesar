@@ -43,25 +43,35 @@ function codebase64(texto, resultado) {
 function codecesar(texto, resultado) {
     if (code[0].checked) {
         for (i = 0; i < texto.value.length; i++) {
-            calcula = letras.indexOf(texto.value[i])
-            if (calcula + parseInt(incremento.value) >= letras.length) {
-                dif = calcula + parseInt(incremento.value) - letras.length
-                resultado = resultado + letras[dif]
+            if (texto.value[i] == " ") {
+                resultado = resultado + " "
             }
             else {
-                resultado = resultado + letras[calcula + parseInt(incremento.value)]
+                calcula = letras.indexOf(texto.value[i])
+                if (calcula + parseInt(incremento.value) >= letras.length) {
+                    dif = calcula + parseInt(incremento.value) - letras.length
+                    resultado = resultado + letras[dif]
+                }
+                else {
+                    resultado = resultado + letras[calcula + parseInt(incremento.value)]
+                }
             }
         }
     }
     else {
         for (i = 0; i < texto.value.length; i++) {
-            calcula = letras.indexOf(texto.value[i])
-            if (calcula - parseInt(incremento.value) < 0) {
-                dif = calcula - parseInt(incremento.value)
-                resultado = resultado + letras[letras.length + dif]
+            if (texto.value[i] == " ") {
+                resultado = resultado + " "
             }
             else {
-                resultado = resultado + letras[calcula - parseInt(incremento.value)]
+                calcula = letras.indexOf(texto.value[i])
+                if (calcula - parseInt(incremento.value) < 0) {
+                    dif = calcula - parseInt(incremento.value)
+                    resultado = resultado + letras[letras.length + dif]
+                }
+                else {
+                    resultado = resultado + letras[calcula - parseInt(incremento.value)]
+                }
             }
         }
     }
